@@ -33,7 +33,7 @@ void main()
     float shading= shadeColor.g;            //取MonaLisa綠色版作為明亮值
     vec2 mouse=u_mouse.xy/u_resolution.xy;
     
-    float value=mouseEffect(uv,mouse,0.2);
+    float value=mouseEffect(uv,mouse,0.05);
 
 
     vec4 c;
