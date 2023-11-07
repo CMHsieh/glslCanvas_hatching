@@ -21,7 +21,7 @@ float breathing=(exp(sin(u_time*2.0*3.14159/8.0)) - 0.36787944)*0.42545906412;
 float mouseEffect(vec2 uv, vec2 mouse, float size)
 {
     float dist=length(uv-mouse);
-    return 1.-smoothstep(size+0.2*(breathing+0.5), size, dist);  //size
+    return smoothstep(size, size+0.2*(breathing+0.5), dist);  //size
 }
 
 
