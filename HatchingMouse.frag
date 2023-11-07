@@ -59,7 +59,8 @@ void main()
                 
      vec4 inkColor = vec4(0.0, 0.0, 1.0, 1.0);
      vec4 src = mix( mix( inkColor, vec4(1.), c.r ), c, .5 );
-     vec4 mixColor = mix(shadeColor, src, value);
+     vec4 bg = inkColor*shading;
+     vec4 mixColor = mix(bg, src, value);
      gl_FragColor = mixColor;
 }
 
