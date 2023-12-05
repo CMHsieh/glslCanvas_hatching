@@ -23,28 +23,28 @@ void main()
 {
     vec2 uv= gl_FragCoord.xy/u_resolution.xy;
     vec2 vUv=fract(6.0*uv);                        //key
-    float shading= texture2D(u_tex0, uv).g; //取MonaLisa綠色版作為明亮值
+    float shading= texture2D(u_tex0, uv).r*6 + texture2D(u_tex0, uv).g*3 + texture2D(u_tex0, uv).b ; //取MonaLisa綠色版作為明亮值
 
 
     vec4 c;
                 float step = 1. / 6.;
                 if( shading <= step ){   
-                    c = mix( texture2D( u_tex6, vUv ), texture2D( u_tex5, vUv ), 6. * shading );
+                    c = texture2D( u_tex6, vUv ); //mix( texture2D( u_tex6, vUv ), texture2D( u_tex5, vUv ), 6. * shading );
                 }
-                if( shading > step && shading <= 2. * step ){
-                    c = mix( texture2D( u_tex5, vUv ), texture2D( u_tex4, vUv) , 6. * ( shading - step ) );
+                else if( shading > step && shading <= 2. * step ){
+                    c = texture2D( u_tex5, vUv ) ; //mix( texture2D( u_tex5, vUv ), texture2D( u_tex4, vUv) , 6. * ( shading - step ) );
                 }
-                if( shading > 2. * step && shading <= 3. * step ){
-                    c = mix( texture2D( u_tex4, vUv ), texture2D( u_tex3, vUv ), 6. * ( shading - 2. * step ) );
+                else if( shading > 2. * step && shading <= 3. * step ){
+                    c = texture2D( u_tex4, vUv ); //mix( texture2D( u_tex4, vUv ), texture2D( u_tex3, vUv ), 6. * ( shading - 2. * step ) );
                 }
-                if( shading > 3. * step && shading <= 4. * step ){
-                    c = mix( texture2D( u_tex3, vUv ), texture2D( u_tex2, vUv ), 6. * ( shading - 3. * step ) );
+                else if( shading > 3. * step && shading <= 4. * step ){
+                    c = texture2D( u_tex3, vUv ); // mix( texture2D( u_tex3, vUv ), texture2D( u_tex2, vUv ), 6. * ( shading - 3. * step ) );
                 }
-                if( shading > 4. * step && shading <= 5. * step ){
-                    c = mix( texture2D( u_tex2, vUv ), texture2D( u_tex1, vUv ), 6. * ( shading - 4. * step ) );
+                else if( shading > 4. * step && shading <= 5. * step ){
+                    c = texture2D( u_tex2, vUv ); // mix( texture2D( u_tex2, vUv ), texture2D( u_tex1, vUv ), 6. * ( shading - 4. * step ) );
                 }
-                if( shading > 5. * step ){
-                    c = mix( texture2D( u_tex1, vUv ), vec4( 1. ), 6. * ( shading - 5. * step ) );
+                else if( shading > 5. * step ){
+                    c = texture2D( u_tex1, vUv ) ; //mix( texture2D( u_tex1, vUv ), vec4( 1. ), 6. * ( shading - 5. * step ) );
                 }
                 
      vec4 inkColor = vec4(0.0, 0.0, 1.0, 1.0);

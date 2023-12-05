@@ -15,7 +15,7 @@ void main() {
     //st.x *= u_resolution.x/u_resolution.y;
     float paraX = (sin(u_time*0.1)*0.5+0.5)*45.;
     float paraY = (cos(u_time*0.05)*0.5+0.5)*125.;
- 	vec2 brickSize=vec2(paraX+5.0, paraY+3.0) ; //n_mouse*60.0
+ 	vec2 brickSize=n_mouse*60.0;//vec2(paraX+5.0, paraY+3.0); //n_mouse*60.0
  	vec2 uv=st; //[0~1]
  	vec2 uvs=uv*brickSize;//[0~6]
     vec2 ipos = floor(uvs);  // get the integer coords
