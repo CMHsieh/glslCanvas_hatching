@@ -16,9 +16,6 @@ uniform sampler2D u_tex3;
 uniform sampler2D u_tex4;
 uniform sampler2D u_tex5;
 uniform sampler2D u_tex6;
-uniform sampler2D u_tex7; //Nepal.mp4
-
-
 
 void main()
 {
