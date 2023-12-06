@@ -9,7 +9,7 @@ precision mediump float;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
-uniform sampler2D u_tex0; //MonaLisa
+uniform sampler2D u_tex0; //Pian.mp4
 uniform sampler2D u_tex1;
 uniform sampler2D u_tex2;
 uniform sampler2D u_tex3;
@@ -24,7 +24,7 @@ void main()
 {
     vec2 uv= gl_FragCoord.xy/u_resolution.xy;
     vec2 vUv=fract(6.0*uv);                        //key
-    float shading= texture2D(u_tex7, uv).g; //取MonaLisa綠色版作為明亮值
+    float shading= texture2D(u_tex0, uv).g; //取MonaLisa綠色版作為明亮值
 
 
     vec4 c;
