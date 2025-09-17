@@ -20,9 +20,9 @@ uniform sampler2D u_tex6;
 void main()
 {
     vec2 uv= gl_FragCoord.xy/u_resolution.xy;
-uv.x *= u_resolution.x / u_resolution.y;
     vec2 vUv=fract(6.0*uv);                        //key
-    float shading= texture2D(u_tex0, uv).g; //取MonaLisa綠色版作為明亮值
+uv.x *= u_resolution.x / u_resolution.y;  
+float shading= texture2D(u_tex0, uv).g; //取MonaLisa綠色版作為明亮值
 
 
     vec4 c;
