@@ -36,7 +36,7 @@ void main()
     float shadingB= bgColor.g;            //取MonaLisa綠色版作為明亮值
     vec2 mouse=u_mouse.xy/u_resolution.xy;
     
-    float value=mouseEffect(uv,mouse,0.05);
+    float value=mouseEffect(uv,mouse,0.1);
     shading = mix(shadingB, shading, value); //replace
 
 
