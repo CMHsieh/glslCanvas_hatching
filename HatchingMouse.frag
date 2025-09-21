@@ -37,7 +37,7 @@ void main()
     vec2 mouse=u_mouse.xy/u_resolution.xy;
     
     float value=mouseEffect(uv,mouse,0.1);
-    shading = mix(shadingB, shading, value); //replace
+    //shading = mix(shadingB, shading, value); //replace
 
 
     vec4 c;
@@ -63,6 +63,7 @@ void main()
                 
      vec4 inkColor = vec4(0.0, 0.0, 1.0, 1.0);
      vec4 src = mix( mix( inkColor, vec4(1.), c.r ), c, .5 );
+     src = mix(src*shadingB, src, value);
      gl_FragColor = src;
 }
 
