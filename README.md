@@ -6,8 +6,8 @@ Cross-hatching GLSL shader Based on Microsoft Research ["Real-Time Hatching" pap
 https://www.clicktorelease.com/code/cross-hatching/
 
 
-To preview an HTML file in GitHub Codespaces,
-Open Terminal: Access the terminal within Codespaces.
-Install http-server: Type "npm i -g http-server".
-Run Server: Type "http-server".
-Open in Browser: Codespaces will typically detect the running server and provide an option to "Open in Browser" for the exposed port.
+To preview an HTML file in GitHub Codespaces, 
+Open Terminal: Access the terminal within Codespaces. 
+Install http-server: Type "npm i -g http-server". 
+Run Server: Type "http-server". 
+Open in Browser: Codespaces will typically detect the running server and provide an option to "Open in Browser" for the exposed port. 
