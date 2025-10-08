@@ -40,6 +40,6 @@ void main() {
     float mask = smoothstep(radius, radius - 0.005, dist);
 
     // Blend dot pattern with original color
-    vec3 halftone = mix(vec3(0.0), vec3(0.0, 0.0, 1.0), mask);
+    vec3 halftone = mix(vec3(1.0), vec3(0.0, 0.0, 1.0), mask);
     gl_FragColor = vec4(halftone, 1.0);
 }
