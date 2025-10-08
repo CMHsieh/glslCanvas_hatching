@@ -17,7 +17,7 @@ uniform sampler2D u_tex1;
     }
 
 // Helper for halftone mask
-    float halftoneMask(vec2, uv, float val, float angle) {
+    float halftoneMask(vec2 uv, float val, float angle, float dotSpacing, float dotRadius) {
         mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
         vec2 uv_rot = rot * (uv - 0.5) + 0.5;
         vec2 grid = floor(uv_rot / dotSpacing) * dotSpacing + dotSpacing * 0.5;
@@ -50,10 +50,10 @@ void main() {
     
 
     // Get masks for each channel
-    float maskC = halftoneMask(cmyk.x, angleC);
-    float maskM = halftoneMask(cmyk.y, angleM);
-    float maskY = halftoneMask(cmyk.z, angleY);
-    float maskK = halftoneMask(k, angleK);
+    float maskC = halftoneMask(uv, cmyk.x, angleC, dotSpacing, dotRadius);
+    float maskM = halftoneMask(uv, cmyk.y, angleM, dotSpacing, dotRadius);
+    float maskY = halftoneMask(uv, cmyk.z, angleY, dotSpacing, dotRadius);
+    float maskK = halftoneMask(uv, k, angleK, dotSpacing, dotRadius);
 
     // Composite CMYK dots (additive, but clamp to 1)
     vec3 cmykColor = vec3(0.0);
