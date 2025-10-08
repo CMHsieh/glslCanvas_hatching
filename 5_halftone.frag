@@ -27,8 +27,12 @@ void main() {
     // Halftone grid settings
     float dotSpacing = 0.01; // distance between dots
     float dotRadius = 0.006;  // base dot radius
-    vec2 grid = floor(uv / dotSpacing) * dotSpacing + dotSpacing * 0.5;
-    float dist = length(uv - grid);
+    // Rotate grid 45 degrees (diagonal)
+    float angle = 3.14159265 / 4.0; // 45 degrees in radians
+    mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
+    vec2 uv_rot = rot * (uv - 0.5) + 0.5;
+    vec2 grid = floor(uv_rot / dotSpacing) * dotSpacing + dotSpacing * 0.5;
+    float dist = length(uv_rot - grid);
 
     // Add noise to dot radius for ink effect
     float noise = rand(grid + u_time);
