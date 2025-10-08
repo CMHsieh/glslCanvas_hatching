@@ -17,7 +17,7 @@ uniform sampler2D u_tex1;
     }
 
 // Helper for halftone mask
-    float halftoneMask(float val, float angle) {
+    float halftoneMask(vec2, uv, float val, float angle) {
         mat2 rot = mat2(cos(angle), -sin(angle), sin(angle), cos(angle));
         vec2 uv_rot = rot * (uv - 0.5) + 0.5;
         vec2 grid = floor(uv_rot / dotSpacing) * dotSpacing + dotSpacing * 0.5;
